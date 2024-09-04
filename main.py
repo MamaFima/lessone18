@@ -12,13 +12,13 @@ def index():
         news = get_news()
     return render_template('index.html', weather=weather, news=news)
 def get_weather(city):
-    api_key = 'e47f911bf13dc4c60d5b5807200a25eb'
+    api_key = '(вставить ключ)'
     url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric'
     response = requests.get(url)
     return response.json()
 
 def get_news():
-    api_key = 'c631fd13a6f14652a2010eb47068eacf'
+    api_key = '(вставить ключ)'
     url = f'https://newsapi.org/v2/everything?q=technology&sortBy=popularity&apiKey={api_key}'
 
     response = requests.get(url)
