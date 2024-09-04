@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мудрые мысли</title>
+    <style>
+       body, html {
+            height: 100%;
+            margin: 0;
+            background-image: url('static/dz.png'); /* Убедитесь, что имя файла верное */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center; margin-top: 50px;">
+        <h1>Мудрые мысли</h1>
+        <p style="font-size: 24px;">"{{ quote }}"</p>
+        <p style="font-size: 20px;">- {{ author }}</p>
+    </div>
+</body>
+</html>

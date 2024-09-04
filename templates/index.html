@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погода</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Пользовательские стили -->
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            background-image: url('static/osen.jpg'); /* Убедитесь, что имя файла верное */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center; /* Центрирование текста */
+        }
+
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            color: #fff; /* Убедитесь, что цвет текста контрастен фону */
+        }
+
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .result {
+            margin-top: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Погода в любой точке мира</h1> <!-- Заголовок должен отображаться на странице -->
+        <div class="form-container col-md-6">
+            <form method="POST">
+                <div class="form-group">
+                    <input type="text" name="city" class="form-control" placeholder="Введите название города" required>
+                </div>
+                <button type="submit" class="btn btn-custom btn-block">Узнать погоду</button>
+            </form>
+        </div>
+
+        <div class="result">
+            {% if weather %}
+            <h3>Погода в {{ weather['name'] }}</h3>
+            <p>Температура: {{ weather['main']['temp'] }}°C</p>
+            <p>Погода: {{ weather['weather'][0]['description'] }}</p>
+            {% endif %}
+        </div>
+
+        <div class="result">
+            {% if news %}
+            <h2>Новости</h2>
+            <ul>
+                {% for article in news %}
+                <li><a href="{{ article['url'] }}">{{ article['title'] }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Подключение Bootstrap JS и jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
