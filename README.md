@@ -89,5 +89,5 @@
 Проект лицензирован под лицензией MIT. Подробности см. в файле `LICENSE`.
 
 
-[Золотая осень](https://github.com/MamaFima/lessone18/blob/main/static/osen.jpg)
+![Золотая осень](https://github.com/MamaFima/lessone18/blob/main/static/osen.jpg)
  
